@@ -1,6 +1,8 @@
 /*
     ChibiOS Demos
-    Copyright (C) 2024 Alessandro Salvatore Buccato [a.buccato@gmail.com]
+    Copyright (C) 2024
+    - Alessandro Salvatore Buccato [a.buccato@gmail.com]
+    - Salvatore Dello Iacono [delloiaconos@gmail.com]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -51,6 +53,7 @@ static PWMConfig pwmcfg = {
    {PWM_OUTPUT_DISABLED, NULL},
    {PWM_OUTPUT_DISABLED, NULL}
   },
+  0,
   0,
   0
 };
