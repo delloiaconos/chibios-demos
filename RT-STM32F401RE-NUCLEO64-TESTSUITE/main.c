@@ -1,6 +1,6 @@
 /*
-    ChibiOS Examples
-    Copyright (C) 2020-2021 Alessandro Salvatore Buccato [a.buccato@gmail.com]
+    ChibiOS Demos
+    Copyright (C) 2024 Alessandro Salvatore Buccato [a.buccato@gmail.com]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
 */
 
 /*
- * Demo Test for SSD1366 and PWM Driver.
+ * [TESTSUITE] Demo Test for SSD1366 and PWM Driver.
  * Connect Display on 3V3, GND, PB8 (SCL) and PB9 (SDA).
  * PWM Signal, generated on PB4 pin.
  */
