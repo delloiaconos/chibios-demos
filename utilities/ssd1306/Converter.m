@@ -1,25 +1,69 @@
-function test()
-x = 1;
-y = 1;
+%% 
+ % Image Conversion utility for SSD1306 library.
+ % Copyright (C) 2024 
+ % - Salvatore Dello Iacono [delloiaconos@gmail.com]
+ % - Domenico Rega [dodorega@gmail.com]
+ %
+ % This is free software; you can redistribute it and/or modify
+ % it under the terms of the GNU General Public License as published by
+ % the Free Software Foundation; either version 3 of the License, or
+ % (at your option) any later version.
+ %
+ % This is distributed in the hope that it will be useful,
+ % but WITHOUT ANY WARRANTY; without even the implied warranty of
+ % MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ % GNU General Public License for more details.
+ %
+ %  You should have received a copy of the GNU General Public License
+ %  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ %
 
-[file,path] = uigetfile('*.*');
+function Image2Display( filename )
+    
+    [~,fName,~] = fileparts(filename);
 
-dodo = imread(strcat(path, file));
-dodo = imresize(dodo, [64 128]);
-dodo = imbinarize(dodo);
+    img = imread( filename );
+    img = imresize(img, [64 128]);
+    img = imbinarize(img);
 
-fid=fopen('image.c','w');
+    newName = string( join( regexp( fName ,'[a-zA-Z0-9_]*', 'Match'), '' ) );
+    
+    re = regexp( newName ,'[a-zA-Z][a-zA-Z0-9_]*', 'Match' );
+    if isempty( re )
+        newName = strcat( 'tmp', newName );
+    end
+    newName = join( regexp( newName ,'[a-zA-Z][a-zA-Z0-9_]*', 'Match'), '' );
 
-fprintf(fid, "static const ssd1306_color_t image_data [] = { \n\r");
+    fid=fopen( strcat( newName, '.h'), 'wt');
 
-for(x = 1:64)
-      for(y = 1:128)
-        fprintf(fid, "%d, ", dodo(x,y));
-      end
+    fprintf(fid, "#ifndef __%s_H__\n", upper(newName) );
+    fprintf(fid, "#define __%s_H__\n\n", upper(newName) );
+    
+    fprintf(fid, "/* This file has been automatically generated from '%s'. */\n\n", filename );
+    fprintf(fid, "static const ssd1306_color_t %s_data [] = { \n", lower(newName) );
+    
+    for x=1:64
+        fprintf(fid, "\t" );
+        for y=1:128
+            fprintf(fid, "%d, ", img(x,y));
+        end
+        fprintf(fid, "\n" );
+    end
+    fprintf(fid, "\n\t};\n");    
+    fprintf(fid, "#endif // __%s_H__\n", upper(newName) );
+
+    fclose(fid);
+
 end
 
-fprintf(fid, "\n\r };");
 
-fclose(fid);
+%% Usage Example
 
+[file,location] = uigetfile({'*.bmp;*.png;*.jpg','Images File'; ...
+                             '*.*', 'All Files (*.*)'}, ...
+                          'Image Selector' );
+if isequal(file,0)
+   disp('User selected Cancel');
+else
+   Image2Display( fullfile( location, file ) );
 end
