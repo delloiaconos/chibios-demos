@@ -1,4 +1,4 @@
-# Shell PATH
+# SSD1306 PATH
 SSD1306PATH = ./ssd1306
 
 # RT Shell files.
