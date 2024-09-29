@@ -1,6 +1,6 @@
 /*
     ChibiOS Demos
-    Copyright (C) 2024 Salvatore Dello Iacono [delloiaconos@gmail.com]
+    Copyright (C) 2024  Domenico Rega [dodorega@gmail.com]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
 */
 
 /*
- * [SSD1306] SSD1306 OLED Display Example
+ * [SSD1306] SSD1306 OLED Display Example 01
  * A simple example with the SSD1306 OLED display. This demo writes some text
  * on an oled display based on the ssd1306 driver. The display I2C should be
  * connected on PB8 and PB9.
