@@ -94,6 +94,9 @@ CONFDIR  := ./cfg
 BUILDDIR := ./build
 DEPDIR   := ./.dep
 
+# ChibiOS-Demos Library Paht
+USRLIBS  := ../usrlibs
+
 # Licensing files.
 include $(CHIBIOS)/os/license/license.mk
 # Startup files.
@@ -113,7 +116,7 @@ include $(CHIBIOS)/tools/mk/autobuild.mk
 #include $(CHIBIOS)/test/rt/rt_test.mk
 #include $(CHIBIOS)/test/oslib/oslib_test.mk
 include $(CHIBIOS)/os/hal/lib/streams/streams.mk
-include ./ssd1306/ssd1306.mk
+include $(USRLIBS)/ssd1306/ssd1306.mk
 
 # Define linker script file here.
 LDSCRIPT= $(STARTUPLD)/STM32F401xE.ld
