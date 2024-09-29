@@ -1,6 +1,6 @@
 /*
-    ChibiOS Examples 
-    Copyright (C) 2020-2024 Salvatore Dello Iacono [delloiaconos@gmail.com]
+    ChibiOS Demos
+    Copyright (C) 2024 Salvatore Dello Iacono [delloiaconos@gmail.com]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -68,11 +68,11 @@ static THD_FUNCTION(OledDisplay, arg) {
   while (true) {
 
     ssd1306GotoXy(&SSD1306D1, 0, 1);
-    chsnprintf(buff, BUFF_SIZE, "NeaPolis");
+    chsnprintf(buff, BUFF_SIZE, "ChibiOS");
     ssd1306Puts(&SSD1306D1, buff, &ssd1306_font_11x18, SSD1306_COLOR_WHITE);
 
     ssd1306GotoXy(&SSD1306D1, 0, 20);
-    chsnprintf(buff, BUFF_SIZE, "Innovation");
+    chsnprintf(buff, BUFF_SIZE, "Demos");
     ssd1306Puts(&SSD1306D1, buff, &ssd1306_font_7x10, SSD1306_COLOR_BLACK);
 
     ssd1306UpdateScreen(&SSD1306D1);
