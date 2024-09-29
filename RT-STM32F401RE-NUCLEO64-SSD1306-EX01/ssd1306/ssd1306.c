@@ -1,8 +1,8 @@
-#include <string.h>
 #include "hal.h"
 #include "ssd1306.h"
 #include "ssd1306_font.c"
 #include "ssd1306_font_7_10.c"
+#include "string.h"
 
 #define ABS(x)   ((x) > 0 ? (x) : -(x))
 
@@ -301,6 +301,7 @@ void drawTri(void *ip, uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint1
     drawLine(drvp, x2, y2, x3, y3, color);
     drawLine(drvp, x3, y3, x1, y1, color);
 }
+
 
 void drawTriFill(void *ip, uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t x3, uint16_t y3, ssd1306_color_t color) {
 

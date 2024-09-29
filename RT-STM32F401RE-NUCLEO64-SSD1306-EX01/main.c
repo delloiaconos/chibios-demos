@@ -1,10 +1,13 @@
 /*
-    ChibiOS Examples
-    Copyright (C) 2020-2021 Domenico Rega [dodorega@gmail.com]
+    ChibiOS Demos
+    Copyright (C) 2024 Domenico Rega [dodorega@gmail.com]
+
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
     You may obtain a copy of the License at
+
         http://www.apache.org/licenses/LICENSE-2.0
+
     Unless required by applicable law or agreed to in writing, software
     distributed under the License is distributed on an "AS IS" BASIS,
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -13,7 +16,7 @@
 */
 
 /*
- * [SSD1306] SSD1306 OLED Display Example
+ * [SSD1306] SSD1306 OLED Display Example 02
  * A simple example with the SSD1306 OLED display
  */
 
@@ -104,16 +107,4 @@ int main(void) {
     chThdSleepMilliseconds(50);
   }
 }
-
-/*
- * 	Simple code to turn off Oled Display
- *
-    uint8_t txbuf[] = { 0x00, 0xAE };
-    i2cAcquireBus(&I2CD1);
-    i2cStart(&I2CD1, &i2ccfg);
-    i2cMasterTransmitTimeout(&I2CD1, SSD1306_SAD_0X78, txbuf, sizeof(txbuf), NULL, 0, TIME_INFINITE);
-    i2cReleaseBus(&I2CD1);
-
-
- */
 
