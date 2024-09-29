@@ -1,6 +1,8 @@
 /*
     ChibiOS Demos
-    Copyright (C) 2024 Domenico Rega [dodorega@gmail.com]
+    Copyright (C) 2024
+    - Domenico Rega [dodorega@gmail.com]
+    - Salvatore Dello Iacono [delloiaconos@gmail.com]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -25,7 +27,7 @@
 #include "chprintf.h"
 #include "ssd1306.h"
 #include "stdio.h"
-#include "image.c"
+#include "image.h"
 
 char buffer[20];
 
